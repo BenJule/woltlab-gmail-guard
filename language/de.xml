@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/language.xsd" languagecode="de">
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.user.registration.gmailGuard"><![CDATA[Gmail Guard - Anti-Spam]]></item>
+		<item name="wcf.acp.option.category.user.registration.gmailGuard.description"><![CDATA[Schützt vor Spam-Registrierungen durch Erkennung verdächtiger Gmail-Adressen]]></item>
+
+		<!-- Main Options -->
+		<item name="wcf.acp.option.gmail_guard_enabled"><![CDATA[Gmail Guard aktivieren]]></item>
+		<item name="wcf.acp.option.gmail_guard_enabled.description"><![CDATA[Aktiviert die Überprüfung von Gmail-Adressen bei der Registrierung]]></item>
+
+		<!-- Detection Methods -->
+		<item name="wcf.acp.option.gmail_guard_pattern_check"><![CDATA[Pattern-Erkennung aktivieren]]></item>
+		<item name="wcf.acp.option.gmail_guard_pattern_check.description"><![CDATA[Analysiert Gmail-Adressen auf verdächtige Muster (zufällige Zeichen, viele Zahlen, etc.)]]></item>
+
+		<item name="wcf.acp.option.gmail_guard_api_check"><![CDATA[API-Reputation-Check aktivieren]]></item>
+		<item name="wcf.acp.option.gmail_guard_api_check.description"><![CDATA[Nutzt EmailRep.io API zur Überprüfung der E-Mail-Reputation]]></item>
+
+		<item name="wcf.acp.option.gmail_guard_api_key"><![CDATA[EmailRep.io API-Schlüssel]]></item>
+		<item name="wcf.acp.option.gmail_guard_api_key.description"><![CDATA[Kostenloser API-Schlüssel von <a href="https://emailrep.io" target="_blank">emailrep.io</a>. Registrierung erforderlich.]]></item>
+
+		<!-- Threshold -->
+		<item name="wcf.acp.option.gmail_guard_threshold"><![CDATA[Verdachts-Schwellenwert]]></item>
+		<item name="wcf.acp.option.gmail_guard_threshold.description"><![CDATA[Ab welchem Score (10-100) wird eine E-Mail als verdächtig eingestuft. Empfohlen: 50]]></item>
+
+		<!-- Action -->
+		<item name="wcf.acp.option.gmail_guard_action"><![CDATA[Aktion bei verdächtigen Adressen]]></item>
+		<item name="wcf.acp.option.gmail_guard_action.description"><![CDATA[Was soll bei Erkennung verdächtiger Gmail-Adressen passieren?]]></item>
+		<item name="wcf.acp.option.gmail_guard_action.block"><![CDATA[Registrierung blockieren]]></item>
+		<item name="wcf.acp.option.gmail_guard_action.verify"><![CDATA[Zusätzliche Verifikation verlangen]]></item>
+		<item name="wcf.acp.option.gmail_guard_action.moderate"><![CDATA[Admin-Freigabe erforderlich]]></item>
+
+		<!-- Logging -->
+		<item name="wcf.acp.option.gmail_guard_log_suspicious"><![CDATA[Verdächtige Versuche protokollieren]]></item>
+		<item name="wcf.acp.option.gmail_guard_log_suspicious.description"><![CDATA[Speichert verdächtige Registrierungsversuche im Error-Log]]></item>
+
+		<item name="wcf.acp.option.gmail_guard_log_errors"><![CDATA[API-Fehler protokollieren]]></item>
+		<item name="wcf.acp.option.gmail_guard_log_errors.description"><![CDATA[Speichert Fehler bei API-Anfragen im Error-Log]]></item>
+
+		<item name="wcf.acp.option.gmail_guard_db_log"><![CDATA[Datenbank-Protokollierung]]></item>
+		<item name="wcf.acp.option.gmail_guard_db_log.description"><![CDATA[Speichert verdächtige Versuche in der Datenbank (erfordert zusätzliche Tabelle)]]></item>
+
+		<!-- Notifications -->
+		<item name="wcf.acp.option.gmail_guard_notification_email"><![CDATA[Benachrichtigungs-E-Mail]]></item>
+		<item name="wcf.acp.option.gmail_guard_notification_email.description"><![CDATA[E-Mail-Adresse für Admin-Benachrichtigungen bei verdächtigen Registrierungen]]></item>
+	</category>
+
+	<category name="wcf.user">
+		<!-- Error Messages -->
+		<item name="wcf.user.email.error.gmailSuspicious"><![CDATA[Diese E-Mail-Adresse wurde als verdächtig eingestuft und kann nicht für die Registrierung verwendet werden. Bitte verwenden Sie eine andere E-Mail-Adresse.]]></item>
+
+		<!-- Suspicious Reasons -->
+		<item name="wcf.user.gmail.suspicious.generic"><![CDATA[Verdächtige E-Mail-Adresse erkannt]]></item>
+		<item name="wcf.user.gmail.suspicious.many_consecutive_numbers"><![CDATA[Zu viele aufeinanderfolgende Zahlen in der E-Mail-Adresse]]></item>
+		<item name="wcf.user.gmail.suspicious.random_character_sequence"><![CDATA[Zufällige Zeichenfolge erkannt]]></item>
+		<item name="wcf.user.gmail.suspicious.excessive_dots"><![CDATA[Zu viele Punkte in der E-Mail-Adresse]]></item>
+		<item name="wcf.user.gmail.suspicious.very_short_address"><![CDATA[E-Mail-Adresse ist zu kurz]]></item>
+		<item name="wcf.user.gmail.suspicious.repeating_pattern"><![CDATA[Sich wiederholendes Muster erkannt]]></item>
+		<item name="wcf.user.gmail.suspicious.spam_keyword"><![CDATA[Spam-Schlüsselwort in E-Mail-Adresse gefunden]]></item>
+		<item name="wcf.user.gmail.suspicious.api_high_risk"><![CDATA[E-Mail-Adresse wurde als hohes Risiko eingestuft]]></item>
+		<item name="wcf.user.gmail.suspicious.api_medium_risk"><![CDATA[E-Mail-Adresse wurde als mittleres Risiko eingestuft]]></item>
+		<item name="wcf.user.gmail.suspicious.api_suspicious_flag"><![CDATA[E-Mail-Adresse als verdächtig markiert]]></item>
+		<item name="wcf.user.gmail.suspicious.api_disposable"><![CDATA[Wegwerf-E-Mail-Adresse erkannt]]></item>
+		<item name="wcf.user.gmail.suspicious.api_spam"><![CDATA[E-Mail-Adresse mit Spam in Verbindung gebracht]]></item>
+
+		<!-- Verification Messages -->
+		<item name="wcf.user.gmail.verification.required"><![CDATA[Ihre Registrierung erfordert eine zusätzliche Überprüfung. Bitte prüfen Sie Ihre E-Mails für weitere Anweisungen.]]></item>
+		<item name="wcf.user.gmail.moderation.required"><![CDATA[Ihre Registrierung wird von einem Administrator überprüft. Sie erhalten eine E-Mail, sobald Ihr Account freigeschaltet wurde.]]></item>
+
+		<!-- Admin Notifications -->
+		<item name="wcf.user.gmail.admin.notification.subject"><![CDATA[Verdächtige Gmail-Registrierung]]></item>
+		<item name="wcf.user.gmail.admin.notification.message"><![CDATA[Eine verdächtige Registrierung mit der E-Mail-Adresse {$email} wurde erkannt und benötigt Ihre Überprüfung.]]></item>
+	</category>
+</language>

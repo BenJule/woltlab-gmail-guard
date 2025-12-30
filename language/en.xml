@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/language.xsd" languagecode="en">
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.user.registration.gmailGuard"><![CDATA[Gmail Guard - Anti-Spam]]></item>
+		<item name="wcf.acp.option.category.user.registration.gmailGuard.description"><![CDATA[Protects against spam registrations by detecting suspicious Gmail addresses]]></item>
+
+		<!-- Main Options -->
+		<item name="wcf.acp.option.gmail_guard_enabled"><![CDATA[Enable Gmail Guard]]></item>
+		<item name="wcf.acp.option.gmail_guard_enabled.description"><![CDATA[Enables validation of Gmail addresses during registration]]></item>
+
+		<!-- Detection Methods -->
+		<item name="wcf.acp.option.gmail_guard_pattern_check"><![CDATA[Enable Pattern Detection]]></item>
+		<item name="wcf.acp.option.gmail_guard_pattern_check.description"><![CDATA[Analyzes Gmail addresses for suspicious patterns (random characters, many numbers, etc.)]]></item>
+
+		<item name="wcf.acp.option.gmail_guard_api_check"><![CDATA[Enable API Reputation Check]]></item>
+		<item name="wcf.acp.option.gmail_guard_api_check.description"><![CDATA[Uses EmailRep.io API to check email reputation]]></item>
+
+		<item name="wcf.acp.option.gmail_guard_api_key"><![CDATA[EmailRep.io API Key]]></item>
+		<item name="wcf.acp.option.gmail_guard_api_key.description"><![CDATA[Free API key from <a href="https://emailrep.io" target="_blank">emailrep.io</a>. Registration required.]]></item>
+
+		<!-- Threshold -->
+		<item name="wcf.acp.option.gmail_guard_threshold"><![CDATA[Suspicion Threshold]]></item>
+		<item name="wcf.acp.option.gmail_guard_threshold.description"><![CDATA[At what score (10-100) is an email considered suspicious. Recommended: 50]]></item>
+
+		<!-- Action -->
+		<item name="wcf.acp.option.gmail_guard_action"><![CDATA[Action for Suspicious Addresses]]></item>
+		<item name="wcf.acp.option.gmail_guard_action.description"><![CDATA[What should happen when suspicious Gmail addresses are detected?]]></item>
+		<item name="wcf.acp.option.gmail_guard_action.block"><![CDATA[Block registration]]></item>
+		<item name="wcf.acp.option.gmail_guard_action.verify"><![CDATA[Require additional verification]]></item>
+		<item name="wcf.acp.option.gmail_guard_action.moderate"><![CDATA[Require admin approval]]></item>
+
+		<!-- Logging -->
+		<item name="wcf.acp.option.gmail_guard_log_suspicious"><![CDATA[Log Suspicious Attempts]]></item>
+		<item name="wcf.acp.option.gmail_guard_log_suspicious.description"><![CDATA[Stores suspicious registration attempts in error log]]></item>
+
+		<item name="wcf.acp.option.gmail_guard_log_errors"><![CDATA[Log API Errors]]></item>
+		<item name="wcf.acp.option.gmail_guard_log_errors.description"><![CDATA[Stores errors during API requests in error log]]></item>
+
+		<item name="wcf.acp.option.gmail_guard_db_log"><![CDATA[Database Logging]]></item>
+		<item name="wcf.acp.option.gmail_guard_db_log.description"><![CDATA[Stores suspicious attempts in database (requires additional table)]]></item>
+
+		<!-- Notifications -->
+		<item name="wcf.acp.option.gmail_guard_notification_email"><![CDATA[Notification Email]]></item>
+		<item name="wcf.acp.option.gmail_guard_notification_email.description"><![CDATA[Email address for admin notifications about suspicious registrations]]></item>
+	</category>
+
+	<category name="wcf.user">
+		<!-- Error Messages -->
+		<item name="wcf.user.email.error.gmailSuspicious"><![CDATA[This email address has been flagged as suspicious and cannot be used for registration. Please use a different email address.]]></item>
+
+		<!-- Suspicious Reasons -->
+		<item name="wcf.user.gmail.suspicious.generic"><![CDATA[Suspicious email address detected]]></item>
+		<item name="wcf.user.gmail.suspicious.many_consecutive_numbers"><![CDATA[Too many consecutive numbers in email address]]></item>
+		<item name="wcf.user.gmail.suspicious.random_character_sequence"><![CDATA[Random character sequence detected]]></item>
+		<item name="wcf.user.gmail.suspicious.excessive_dots"><![CDATA[Too many dots in email address]]></item>
+		<item name="wcf.user.gmail.suspicious.very_short_address"><![CDATA[Email address is too short]]></item>
+		<item name="wcf.user.gmail.suspicious.repeating_pattern"><![CDATA[Repeating pattern detected]]></item>
+		<item name="wcf.user.gmail.suspicious.spam_keyword"><![CDATA[Spam keyword found in email address]]></item>
+		<item name="wcf.user.gmail.suspicious.api_high_risk"><![CDATA[Email address flagged as high risk]]></item>
+		<item name="wcf.user.gmail.suspicious.api_medium_risk"><![CDATA[Email address flagged as medium risk]]></item>
+		<item name="wcf.user.gmail.suspicious.api_suspicious_flag"><![CDATA[Email address marked as suspicious]]></item>
+		<item name="wcf.user.gmail.suspicious.api_disposable"><![CDATA[Disposable email address detected]]></item>
+		<item name="wcf.user.gmail.suspicious.api_spam"><![CDATA[Email address associated with spam]]></item>
+
+		<!-- Verification Messages -->
+		<item name="wcf.user.gmail.verification.required"><![CDATA[Your registration requires additional verification. Please check your email for further instructions.]]></item>
+		<item name="wcf.user.gmail.moderation.required"><![CDATA[Your registration will be reviewed by an administrator. You will receive an email once your account has been activated.]]></item>
+
+		<!-- Admin Notifications -->
+		<item name="wcf.user.gmail.admin.notification.subject"><![CDATA[Suspicious Gmail Registration]]></item>
+		<item name="wcf.user.gmail.admin.notification.message"><![CDATA[A suspicious registration with the email address {$email} has been detected and requires your review.]]></item>
+	</category>
+</language>
