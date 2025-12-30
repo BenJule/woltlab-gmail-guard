@@ -5,48 +5,36 @@
 			<category name="user.registration.gmailGuard">
 				<parent>user.registration</parent>
 			</category>
+			<category name="user.registration.gmailGuard.detection">
+				<parent>user.registration.gmailGuard</parent>
+			</category>
+			<category name="user.registration.gmailGuard.antibot">
+				<parent>user.registration.gmailGuard</parent>
+			</category>
+			<category name="user.registration.gmailGuard.ratelimit">
+				<parent>user.registration.gmailGuard</parent>
+			</category>
+			<category name="user.registration.gmailGuard.whitelist">
+				<parent>user.registration.gmailGuard</parent>
+			</category>
 		</categories>
 
 		<options>
-			<!-- Main Enable/Disable -->
+			<!-- MAIN SETTINGS -->
 			<option name="gmail_guard_enabled">
 				<categoryname>user.registration.gmailGuard</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 
-			<!-- Detection Methods -->
-			<option name="gmail_guard_pattern_check">
-				<categoryname>user.registration.gmailGuard</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
-			</option>
-
-			<option name="gmail_guard_api_check">
-				<categoryname>user.registration.gmailGuard</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
-			</option>
-
-			<option name="gmail_guard_api_key">
-				<categoryname>user.registration.gmailGuard</categoryname>
-				<optiontype>text</optiontype>
-				<defaultvalue></defaultvalue>
-			</option>
-
-			<!-- Threshold -->
 			<option name="gmail_guard_threshold">
 				<categoryname>user.registration.gmailGuard</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>50</defaultvalue>
 				<minvalue>10</minvalue>
-				<maxvalue>100</maxvalue>
+				<maxvalue>200</maxvalue>
 			</option>
 
-			<!-- Action on Detection -->
 			<option name="gmail_guard_action">
 				<categoryname>user.registration.gmailGuard</categoryname>
 				<optiontype>select</optiontype>
@@ -56,29 +44,214 @@ verify
 moderate</selectoptions>
 			</option>
 
-			<!-- Logging Options -->
+			<!-- DETECTION METHODS -->
+			<option name="gmail_guard_pattern_check">
+				<categoryname>user.registration.gmailGuard.detection</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_api_check">
+				<categoryname>user.registration.gmailGuard.detection</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_api_key">
+				<categoryname>user.registration.gmailGuard.detection</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+
+			<!-- STOPFORUMSPAM -->
+			<option name="gmail_guard_sfs_enabled">
+				<categoryname>user.registration.gmailGuard.detection</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_sfs_api_key">
+				<categoryname>user.registration.gmailGuard.detection</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+
+			<!-- DISPOSABLE EMAIL -->
+			<option name="gmail_guard_disposable_check_enabled">
+				<categoryname>user.registration.gmailGuard.detection</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_disposable_api_enabled">
+				<categoryname>user.registration.gmailGuard.detection</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_custom_disposable_domains">
+				<categoryname>user.registration.gmailGuard.detection</categoryname>
+				<optiontype>textarea</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+
+			<!-- ANTI-BOT FEATURES -->
+			<option name="gmail_guard_honeypot_enabled">
+				<categoryname>user.registration.gmailGuard.antibot</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_timing_check_enabled">
+				<categoryname>user.registration.gmailGuard.antibot</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_min_form_time">
+				<categoryname>user.registration.gmailGuard.antibot</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>3</defaultvalue>
+				<minvalue>1</minvalue>
+				<maxvalue>60</maxvalue>
+			</option>
+
+			<option name="gmail_guard_max_form_time">
+				<categoryname>user.registration.gmailGuard.antibot</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>3600</defaultvalue>
+				<minvalue>60</minvalue>
+				<maxvalue>86400</maxvalue>
+			</option>
+
+			<option name="gmail_guard_browser_check_enabled">
+				<categoryname>user.registration.gmailGuard.antibot</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<!-- TIME RESTRICTIONS -->
+			<option name="gmail_guard_time_restriction_enabled">
+				<categoryname>user.registration.gmailGuard.antibot</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_allowed_start_hour">
+				<categoryname>user.registration.gmailGuard.antibot</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>8</defaultvalue>
+				<minvalue>0</minvalue>
+				<maxvalue>23</maxvalue>
+			</option>
+
+			<option name="gmail_guard_allowed_end_hour">
+				<categoryname>user.registration.gmailGuard.antibot</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>22</defaultvalue>
+				<minvalue>0</minvalue>
+				<maxvalue>23</maxvalue>
+			</option>
+
+			<!-- RATE LIMITING -->
+			<option name="gmail_guard_rate_limit_enabled">
+				<categoryname>user.registration.gmailGuard.ratelimit</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_rate_limit_max">
+				<categoryname>user.registration.gmailGuard.ratelimit</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>3</defaultvalue>
+				<minvalue>1</minvalue>
+				<maxvalue>100</maxvalue>
+			</option>
+
+			<option name="gmail_guard_rate_limit_window">
+				<categoryname>user.registration.gmailGuard.ratelimit</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>60</defaultvalue>
+				<minvalue>1</minvalue>
+				<maxvalue>1440</maxvalue>
+			</option>
+
+			<!-- AUTO BAN -->
+			<option name="gmail_guard_auto_ban_enabled">
+				<categoryname>user.registration.gmailGuard.ratelimit</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_auto_ban_threshold">
+				<categoryname>user.registration.gmailGuard.ratelimit</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+				<minvalue>1</minvalue>
+				<maxvalue>50</maxvalue>
+			</option>
+
+			<option name="gmail_guard_auto_ban_window">
+				<categoryname>user.registration.gmailGuard.ratelimit</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>60</defaultvalue>
+				<minvalue>1</minvalue>
+				<maxvalue>1440</maxvalue>
+			</option>
+
+			<option name="gmail_guard_ban_duration">
+				<categoryname>user.registration.gmailGuard.ratelimit</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>24</defaultvalue>
+				<minvalue>1</minvalue>
+				<maxvalue>720</maxvalue>
+			</option>
+
+			<!-- WHITELIST / BLACKLIST -->
+			<option name="gmail_guard_whitelist_enabled">
+				<categoryname>user.registration.gmailGuard.whitelist</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_whitelist">
+				<categoryname>user.registration.gmailGuard.whitelist</categoryname>
+				<optiontype>textarea</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+
+			<option name="gmail_guard_blacklist_enabled">
+				<categoryname>user.registration.gmailGuard.whitelist</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+
+			<option name="gmail_guard_blacklist">
+				<categoryname>user.registration.gmailGuard.whitelist</categoryname>
+				<optiontype>textarea</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+
+			<!-- LOGGING -->
 			<option name="gmail_guard_log_suspicious">
 				<categoryname>user.registration.gmailGuard</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 
 			<option name="gmail_guard_log_errors">
 				<categoryname>user.registration.gmailGuard</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 
 			<option name="gmail_guard_db_log">
 				<categoryname>user.registration.gmailGuard</categoryname>
 				<optiontype>boolean</optiontype>
-				<defaultvalue>0</defaultvalue>
-				<admindefaultvalue>0</admindefaultvalue>
+				<defaultvalue>1</defaultvalue>
 			</option>
 
-			<!-- Notifications -->
+			<!-- NOTIFICATIONS -->
 			<option name="gmail_guard_notification_email">
 				<categoryname>user.registration.gmailGuard</categoryname>
 				<optiontype>text</optiontype>

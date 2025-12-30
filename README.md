@@ -1,23 +1,34 @@
-# Gmail Guard - Anti-Spam Plugin für WoltLab Suite™
+# Gmail Guard v2.0 - Comprehensive Anti-Spam Suite für WoltLab Suite™
 
-Schützt Ihr Forum vor Spam-Registrierungen durch intelligente Erkennung verdächtiger Gmail-Adressen.
+🛡️ **Enterprise-grade Spam-Schutz** für Ihr WoltLab Forum mit umfassenden Anti-Bot-Maßnahmen, intelligenter Erkennung und automatischem IP-Schutz.
 
-## Features
+> **NEU in v2.0:** Whitelist/Blacklist, StopForumSpam.com Integration, Honeypot-Felder, Browser-Fingerprinting, IP-Rate-Limiting, Auto-Bans, Wegwerf-E-Mail-Erkennung (60+ Dienste) und vieles mehr!
 
-✅ **Kombinierte Erkennungsmethoden:**
-- Pattern-basierte Analyse (zufällige Zeichen, Zahlenfolgen, etc.)
-- E-Mail Reputation API (EmailRep.io)
-- Konfigurierbarer Verdachts-Schwellenwert
+## 🌟 Features v2.0
 
-✅ **Flexible Aktionen:**
-- Registrierung komplett blockieren
-- Zusätzliche Verifikation verlangen
-- Admin-Freigabe erforderlich
+### 🎯 Erweiterte Erkennung
+- ✅ **Gmail Pattern-Analyse** - Erkennt verdächtige Muster in Gmail-Adressen
+- ✅ **EmailRep.io API** - E-Mail-Reputation-Prüfung
+- ✅ **StopForumSpam.com** - Abgleich gegen weltweite Spam-Datenbank
+- ✅ **Wegwerf-E-Mail-Erkennung** - 60+ bekannte Disposable-Email-Dienste + API
+- ✅ **Whitelist/Blacklist** - Manuelle Kontrolle über E-Mails und Domains
 
-✅ **Umfangreiches Logging:**
-- Error-Log für verdächtige Versuche
-- Optionale Datenbank-Protokollierung
-- E-Mail-Benachrichtigungen an Admins
+### 🤖 Anti-Bot-Maßnahmen
+- ✅ **Honeypot-Felder** - Unsichtbare Bot-Fallen
+- ✅ **Zeit-Prüfungen** - Erkennt zu schnelle Formular-Ausfüllungen
+- ✅ **Browser-Fingerprinting** - Identifiziert Headless-Browser und Bots
+- ✅ **Zeit-Einschränkungen** - Optional: Registrierung nur zu bestimmten Uhrzeiten
+
+### 🔒 Rate Limiting & Schutz
+- ✅ **IP-Raten-Limitierung** - Max. X Versuche pro IP
+- ✅ **Automatische IP-Sperren** - Temporäre Bans bei verdächtigen Versuchen
+- ✅ **Intelligente Schwellenwerte** - Konfigurierbare Auto-Ban-Parameter
+
+### 📊 Monitoring & Verwaltung
+- ✅ **4 Datenbank-Tabellen** - Logs, Rate-Limits, IP-Bans, Statistiken
+- ✅ **Detailliertes Logging** - User-Agent, Details, Gründe
+- ✅ **Admin-Benachrichtigungen** - E-Mail-Alerts mit Score und Gründen
+- ✅ **38 Konfigurationsoptionen** - Volle Kontrolle über alle Features
 
 ## Installation
 

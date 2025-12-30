@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package name="com.example.gmailguard" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/package.xsd">
 	<packageinformation>
-		<packagename>Gmail Guard - Anti-Spam Registrierung</packagename>
-		<packagedescription>Schützt vor Spam-Registrierungen durch Erkennung verdächtiger Gmail-Adressen mit API und Pattern-Analyse</packagedescription>
-		<version>1.0.0</version>
+		<packagename>Gmail Guard - Comprehensive Anti-Spam Suite</packagename>
+		<packagedescription>Advanced anti-spam protection with Gmail detection, disposable email blocking, bot detection, rate limiting, IP banning, and StopForumSpam integration</packagedescription>
+		<version>2.0.0</version>
 		<date>2025-12-30</date>
 		<plugin>com.woltlab.wcf</plugin>
 	</packageinformation>
 
 	<authorinformation>
 		<author>Custom Development</author>
-		<authorurl>https://www.example.com</authorurl>
+		<authorurl>https://github.com/BenJule/woltlab-gmail-guard</authorurl>
 	</authorinformation>
 
 	<requiredpackages>
@@ -23,6 +23,15 @@
 
 	<instructions type="install">
 		<instruction type="file" />
+		<instruction type="sql">install.sql</instruction>
+		<instruction type="language">language/*.xml</instruction>
+		<instruction type="option">option.xml</instruction>
+		<instruction type="eventListener">eventListener.xml</instruction>
+	</instructions>
+
+	<instructions type="update" fromversion="1.*">
+		<instruction type="file" />
+		<instruction type="sql">install.sql</instruction>
 		<instruction type="language">language/*.xml</instruction>
 		<instruction type="option">option.xml</instruction>
 		<instruction type="eventListener">eventListener.xml</instruction>
